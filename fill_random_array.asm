@@ -30,12 +30,15 @@ random:
     jnc random ;if cf =0 (hardware busy) retries again
     
     ;checks if number is nan
-    mov rdi, rax 
+    push rbx ;put the random number into rbx so i dont lose it to the isnan return in rax
+    movsd xmm0, [rsp]
+    pop rax
+    
     call isnan
 
     ;if nan generate new number
     cmp rax, 0
-    jne .random
+    jne random
 
     ;not a nan
     mov [r12 + rcx*8], rbx ;stores number
