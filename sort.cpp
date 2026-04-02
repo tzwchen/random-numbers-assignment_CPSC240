@@ -18,8 +18,6 @@
 #include <iostream>
 #include <cmath>
 
-extern "C" bool isnan(double x);
-
 // Using a standard swap function
 void swap(double* a, double* b) {
     double temp = *a;
