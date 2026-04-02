@@ -18,6 +18,8 @@
 global normalize_array
 
 segment .text
+
+normalize_array:
 push rbp                                        
 mov  rbp,rsp                                    
 push rdi                                          

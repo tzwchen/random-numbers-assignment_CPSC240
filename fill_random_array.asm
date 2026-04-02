@@ -19,6 +19,7 @@ global fill_random_array
 extern isnan
 
 segment .text
+fill_random_array:
 push rbp                                        
 mov  rbp,rsp                                    
 push rdi                                          
