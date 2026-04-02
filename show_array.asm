@@ -50,7 +50,7 @@ print:
     ;get value for float
     push rsi                
     movsd xmm0, [rsp]       
-    pop rdi                
+    pop rax               
 
     ;printf
     mov rdi, format_str     
