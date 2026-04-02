@@ -45,11 +45,11 @@ isnan:
     ; argument is passed in xmm0 for x86-64 calling conventions
     ucomisd xmm0, xmm0   ; compare value to itself
     jp .is_nan           ; unordered means NaN
-    mov rax, 1           ; false: not NaN
+    xor rax, rax           ; false: not NaN
     ret
 
 .is_nan:
-    xor rax, rax         
+    mov rax, 1   
     ret
 
 

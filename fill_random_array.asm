@@ -48,7 +48,7 @@ random:
     ;checks if number is nan
     push rbx ;put the random number into rbx so i dont lose it to the isnan return in rax
     movsd xmm0, [rsp]
-    pop rax
+    pop r11
 
     call isnan
 
