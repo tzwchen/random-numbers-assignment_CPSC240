@@ -1,3 +1,4 @@
+global show_array
 
 segment .data
     ;%llX = 64-bit Hex, %e = Scientific Float, 10 = Newline

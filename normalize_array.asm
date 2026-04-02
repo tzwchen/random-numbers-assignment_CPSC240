@@ -1,4 +1,4 @@
-
+global normalize_array
 
 segment .text
 push rbp                                        
