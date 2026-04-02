@@ -1,3 +1,20 @@
+/****************************************************************************************************************************
+* Program name: "Random Numbers"
+* Purpose: This module implements a QuickSort algorithm to sort the normalized array.
+* Copyright (C) 2026 Tristan Chen
+* * Author information
+* Author name: Tristan Chen
+* Author email: tchen2006@csu.fullerton.edu
+*
+* File information
+* File name: sort.cpp
+* Language: C++ (compiled with -m64)
+* Compile: g++ -c -m64 -o sort.o sort.cpp
+*************************************************************************************************************************/
+
+// Purpose: Provides the partitioning and recursive quicksort logic for the 64-bit array.
+
+
 #include <iostream>
 #include <cmath>
 

@@ -1,3 +1,20 @@
+;****************************************************************************************************************************
+; Program name: "Random Numbers"
+; Purpose: This module displays the array in Hexadecimal and Scientific Decimal formats.
+; Copyright (C) 2026 Tristan Chen
+;
+; Author information
+;   Author name: Tristan Chen
+;   Author email: tchen2006@csu.fullerton.edu
+;
+; File information
+;   File name: show_array.asm
+;   Language: X86 with Intel syntax (64-bit).
+;   Assemble: nasm -f elf64 -o show.o show_array.asm
+;****************************************************************************************************************************
+
+; Purpose: Loops through the array and calls printf using a stack bridge for XMM0 values[cite: 98, 137].
+
 global show_array
 extern printf
 

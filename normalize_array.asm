@@ -1,3 +1,20 @@
+;****************************************************************************************************************************
+; Program name: "Random Numbers"
+; Purpose: This module normalizes 64-bit bit patterns into the range 1.0 to 2.0.
+; Copyright (C) 2026 Tristan Chen
+;
+; Author information
+;   Author name: Tristan Chen
+;   Author email: tchen2006@csu.fullerton.edu
+;
+; File information
+;   File name: normalize_array.asm
+;   Language: X86 with Intel syntax (64-bit).
+;   Assemble: nasm -f elf64 -o normalize.o normalize_array.asm
+;****************************************************************************************************************************
+
+; Purpose: Uses btr and bts to hard-code the exponent bits for IEEE 754 compliance[cite: 68, 69].
+
 global normalize_array
 
 segment .text

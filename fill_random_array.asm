@@ -1,7 +1,21 @@
+;****************************************************************************************************************************
+; Program name: "Random Numbers"
+; Purpose: This module populates a 64-bit array with random bits from the hardware.
+; Copyright (C) 2026 Tristan Chen
+;
+; Author information
+;   Author name: Tristan Chen
+;   Author email: tchen2006@csu.fullerton.edu
+;
+; File information
+;   File name: fill_random_array.asm
+;   Language: X86 with Intel syntax (64-bit).
+;   Assemble: nasm -f elf64 -o fill.o fill_random_array.asm
+;****************************************************************************************************************************
+
+; Purpose: Uses RDRAND to generate high-entropy bits and validates them via isnan.asm[cite: 71].
+
 global fill_random_array
-segment .data
-
-
 
 segment .text
 push rbp                                        
@@ -33,7 +47,7 @@ random:
     push rbx ;put the random number into rbx so i dont lose it to the isnan return in rax
     movsd xmm0, [rsp]
     pop rax
-    
+
     call isnan
 
     ;if nan generate new number
