@@ -34,11 +34,11 @@ pushf
 ;back up array and its max sign, and create a loop counter
 mov r12, rdi  ;arr
 mov r13, rsi  ;max sign
-xor rcx, rcx  ;loop counter
+xor r14, r14  ;loop counter
 
 
 loop:
-    cmp rcx, r13 ;checks loop counter to arr
+    cmp r14, r13 ;checks loop counter to arr
     jge done
 
 random:
@@ -57,8 +57,8 @@ random:
     jne random
 
     ;not a nan
-    mov [r12 + rcx*8], rax ;stores number
-    inc rcx
+    mov [r12 + r14*8], rax ;stores number
+    inc r14
     jmp loop
 
 done:
@@ -66,7 +66,7 @@ done:
     pop rbx
     pop r13
     pop r12
-    pop rcx
+    pop r14
     pop rdx
     pop rsi
     pop rdi

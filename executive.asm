@@ -102,7 +102,9 @@ executive:
     mov rdi, count_fmt
     mov rsi, num_count
     xor al, al
-    call scanf 
+    sub rsp, 8
+    call scanf
+    add rsp, 8 
 
     ;arr stuff
     mov r12, array      ;pointer to array
