@@ -16,6 +16,7 @@
 ; Purpose: Uses RDRAND to generate high-entropy bits and validates them via isnan.asm[cite: 71].
 
 global fill_random_array
+extern isnan
 
 segment .text
 push rbp                                        
@@ -55,7 +56,7 @@ random:
     jne random
 
     ;not a nan
-    mov [r12 + rcx*8], rbx ;stores number
+    mov [r12 + rcx*8], rax ;stores number
     inc rcx
     jmp loop
 
