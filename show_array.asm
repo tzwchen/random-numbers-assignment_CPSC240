@@ -1,4 +1,5 @@
 global show_array
+extern printf
 
 segment .data
     ;%llX = 64-bit Hex, %e = Scientific Float, 10 = Newline
@@ -6,6 +7,8 @@ segment .data
 
 
 segment .text
+
+show_array:
     push rbp                                        
     mov  rbp, rsp                                    
     push rdi          
@@ -19,13 +22,13 @@ segment .text
     mov r12, rdi
     mov r13, rsi
     xor r14, r14
-
+    
 print:
-    cmp rcx, r13            
+    cmp r14, r13            
     jge done          
 
     ;get value for hex
-    mov rsi, [r12 + rcx*8]  ;load into rsi
+    mov rsi, [r12 + r14*8]  ;load into rsi
 
     ;get value for float
     push rsi                
@@ -41,7 +44,7 @@ print:
     call printf             
     add rsp, 8
 
-    inc rcx           
+    inc r14           
     jmp print     
 
 done:
