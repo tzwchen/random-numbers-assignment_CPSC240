@@ -21,20 +21,20 @@ extern isnan
 segment .text
 fill_random_array:
 push rbp                                        
-mov  rbp,rsp                                    
-push rdi                                          
-push rsi                                          
-push rdx                                          
-push rcx                                         
-push r12                                       
-push r13
-push rbx                                          
-pushf               
+    mov  rbp, rsp                                    
+    push rdi          
+    push rsi         
+    push r12          
+    push r13          
+    push r14
+    push r11        
+    push rbx                                          
+    pushf             
 
-;back up array and its max sign, and create a loop counter
-mov r12, rdi  ;arr
-mov r13, rsi  ;max sign
-xor r14, r14  ;loop counter
+    ;back up array and its max sign, and create a loop counter
+    mov r12, rdi  ;arr
+    mov r13, rsi  ;max sign
+    xor r14, r14  ;loop counter
 
 
 loop:
@@ -45,10 +45,12 @@ random:
     rdrand rax ;generates number
     jnc random ;if cf =0 (hardware busy) retries again
     
+    mov r11, rax 
+
     ;checks if number is nan
-    push rbx ;put the random number into rbx so i dont lose it to the isnan return in rax
+    push r11 ;put the random number into rbx so i dont lose it to the isnan return in rax
     movsd xmm0, [rsp]
-    pop r11
+    pop r10
 
     call isnan
 
@@ -57,20 +59,20 @@ random:
     jne random
 
     ;not a nan
-    mov [r12 + r14*8], rax ;stores number
+    mov [r12 + r14*8], r11 ;stores number
     inc r14
     jmp loop
 
 done:
-    popf
-    pop rbx
+popf                                    
+    pop rbx                                 
+    pop r11
+    pop r14
     pop r13
     pop r12
-    pop r14
-    pop rdx
     pop rsi
     pop rdi
-    pop rbp
+    pop rbp       
     ret
 
 

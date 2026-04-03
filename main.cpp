@@ -25,7 +25,7 @@ extern "C" long executive();
 
 int main() {
     std::cout << "Welcome to Random Products, LLC." << std::endl;
-    std::cout << "This software is maintained by Alfred Finkelstein" << std::endl << std::endl;
+    std::cout << "This software is maintained by Tristan Chen" << std::endl << std::endl;
 
     long result = executive();
 

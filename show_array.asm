@@ -57,9 +57,9 @@ print:
     mov al, 1               
     
 
-    sub rsp, 8              
+                 
     call printf             
-    add rsp, 8
+    
 
     inc r14           
     jmp print     
